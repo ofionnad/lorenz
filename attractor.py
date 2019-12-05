@@ -3,6 +3,7 @@ Lets create a chaotic attractor. Beginning with Lorenz.
 """
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 def lorenz(x, y, z, sigma=10, rho=28, beta=2.667):
 
@@ -31,8 +32,10 @@ def logistic(r, x):
 
 
 def bifurcation(n, r, iterations, last, x):
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 9),
-                               sharex=True)
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 9), sharex=True)
+
+    lyapunov = np.zeros(n)
+
     for i in range(iterations):
         x = logistic(r, x)
 
@@ -63,7 +66,7 @@ if __name__=="__main__":
     r = make_attractor(x1, y1, z1)
 
     ax = plt.axes(projection='3d')
-    ax.plot3D(r, 'gray')
+    ax.plot3D(r[0], r[1], r[2], c='gray')
 
 
     n = 10000
