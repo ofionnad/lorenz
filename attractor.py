@@ -26,7 +26,7 @@ def make_attractor(x1, y1, z1, nt=1000, dt=0.01, sigma=10, rho=28, beta=2.667):
     return r
 
 
-def logistic(r, x): 
+def logistic(r, x):
     return r*x*(1-x)
 
 
@@ -71,5 +71,6 @@ if __name__=="__main__":
     iterations=1000
     last = 100
     x = 1e-4*np.ones(n)
+    bifurcation(n, r, iterations, last, x)
 
 
